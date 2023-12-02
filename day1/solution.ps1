@@ -1,7 +1,7 @@
 $lines = Get-Content -Path .\input.txt
-$sum_calibration_value = 0
 
 # Part 1
+$sum_calibration_value = 0
 foreach ($line in $lines) {
     $line_digits = $line -replace "\D+"
     $calibration_value = ($line_digits[0] + $line_digits[-1])
