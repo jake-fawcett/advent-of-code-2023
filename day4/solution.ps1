@@ -31,21 +31,11 @@ foreach ($scratch_card in $scratch_cards[$i..$scratch_cards.length]) {
     foreach ($num in $matches[1].trim() -split "\s+") { $my_numbers.add($num) > $null }
 
     $my_numbers.IntersectWith($winning_numbers)
-    # $match_count = $my_numbers.count
 
     for ($j = 1; $j -lt $my_numbers.count + 1; $j++) {
         $card_frequency[$i+$j] += (1 * $card_frequency[$i])
     }
-
-    # Write-Host $match_count
-    # Write-Host $scratch_card
-    # Write-Host $i
-    # Write-Host ($i + $match_count)
-    # Write-Host $scratch_cards[$i..$i+$match_count]
-    # Write-Host $scratch_cards[($i+1)..($i+$match_count-1)].length
-    # if ($match_count -gt 0) {$scratch_cards += $scratch_cards[$i..$i+$match_count]}
     $i += 1
-    # Write-Host " - - - - "
 }
 
 Write-Host "Part 2: $(($card_frequency.Values | Measure-Object -Sum).Sum)"
